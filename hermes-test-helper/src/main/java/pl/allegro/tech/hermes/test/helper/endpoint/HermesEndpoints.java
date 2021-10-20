@@ -1,20 +1,7 @@
 package pl.allegro.tech.hermes.test.helper.endpoint;
 
 import pl.allegro.tech.hermes.api.Topic;
-import pl.allegro.tech.hermes.api.endpoints.BlacklistEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.FilterEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.GroupEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.MigrationEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.ModeEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.OAuthProviderEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.OwnerEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.QueryEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.ReadinessEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SchemaEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SubscriptionEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SubscriptionOwnershipEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.TopicEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.UnhealthyEndpoint;
+import pl.allegro.tech.hermes.api.endpoints.*;
 import pl.allegro.tech.hermes.consumers.ConsumerEndpoint;
 import pl.allegro.tech.hermes.test.helper.client.Hermes;
 
@@ -29,6 +16,8 @@ public class HermesEndpoints {
     private final SubscriptionEndpoint subscriptionEndpoint;
 
     private final SubscriptionOwnershipEndpoint subscriptionOwnershipEndpoint;
+
+    private final AllTopicClientsEndpoint allTopicClientsEndpoint;
 
     private final SchemaEndpoint schemaEndpoint;
 
@@ -68,6 +57,7 @@ public class HermesEndpoints {
         this.modeEndpoint = hermes.modeEndpoint();
         this.filterEndpoint = hermes.createFilterEndpoint();
         this.readinessEndpoint = hermes.createReadinessEndpoint();
+        this.allTopicClientsEndpoint = hermes.createAllTopicClientsEndpoint();
     }
 
     public HermesEndpoints(String hermesFrontendUrl, String consumerUrl) {
@@ -94,6 +84,10 @@ public class HermesEndpoints {
 
     public SubscriptionOwnershipEndpoint subscriptionOwnershipEndpoint() {
         return subscriptionOwnershipEndpoint;
+    }
+
+    public AllTopicClientsEndpoint allTopicClientsEndpoint() {
+        return allTopicClientsEndpoint;
     }
 
     public SchemaEndpoint schema() {

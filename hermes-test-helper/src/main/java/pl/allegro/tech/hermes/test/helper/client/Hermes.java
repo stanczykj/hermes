@@ -4,20 +4,7 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.proxy.WebResourceFactory;
-import pl.allegro.tech.hermes.api.endpoints.BlacklistEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.FilterEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.GroupEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.MigrationEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.ModeEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.OAuthProviderEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.OwnerEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.QueryEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.ReadinessEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SchemaEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SubscriptionEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.SubscriptionOwnershipEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.TopicEndpoint;
-import pl.allegro.tech.hermes.api.endpoints.UnhealthyEndpoint;
+import pl.allegro.tech.hermes.api.endpoints.*;
 import pl.allegro.tech.hermes.consumers.ConsumerEndpoint;
 
 import javax.ws.rs.Path;
@@ -107,6 +94,10 @@ public class Hermes {
 
     public OwnerEndpoint createOwnerEndpoint() {
         return createProxy(url, OwnerEndpoint.class, managementConfig);
+    }
+
+    public AllTopicClientsEndpoint createAllTopicClientsEndpoint() {
+        return createProxy(url, AllTopicClientsEndpoint.class, managementConfig);
     }
 
     public MigrationEndpoint createMigrationEndpoint() {

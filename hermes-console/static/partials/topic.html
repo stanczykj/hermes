@@ -12,6 +12,7 @@
         <span bind-html="config.buttonsExtension"></span>
         <button class="btn btn-primary" ng-disabled="disabled || config.readOnlyModeEnabled" ng-click="edit()">Edit</button>
         <button class="btn btn-primary" ng-disabled="disabled" ng-click="clone()">Clone</button>
+        <button class="btn btn-primary" ng-disabled="disabled" ng-click="copyClientsToClipboard()">Copy clients to clipboard</button>
         <button class="btn btn-warning" ng-disabled="disabled" ng-show="admin && !isBlacklisted" ng-click="blacklist()" >Blacklist</button>
         <button class="btn btn-default" ng-disabled="disabled" ng-show="admin && isBlacklisted"ng-click="unblacklist()" >Unblacklist</button>
         <button class="btn btn-danger" ng-disabled="disabled" ng-click="remove()">Remove</button>
